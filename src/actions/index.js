@@ -2,6 +2,10 @@ export const actionFormTgl =()=> ({
   type: 'FORM_TGL'
 });
 
+export const actionFormFalse = () =>({
+    type: 'FORM_FALSE'
+  });
+
 export const actionAdd = (newKeg)=> {
     const { id, name, brand, img, price, content, quantity } = newKeg;
     return {

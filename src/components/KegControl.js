@@ -20,12 +20,17 @@ export default class KegControl extends Component {
   
   
 
-  handleClick = () => {
+  /*handleClick = () => {
     this.setState(lastState => ({
       formVisibleOnPage: !lastState.formVisibleOnPage
     }));
-  }
+  }*/
 
+
+  handleClick = () => {
+  const { dispatch } = this.props;
+  const action = a.actionFormTgl();
+  dispatch(action);
   
 
   
@@ -34,9 +39,11 @@ export default class KegControl extends Component {
     const {dispatch} =this.props;
     const action1 = a.actionAdd(newKeg);
     dispatch(action1);
-    this.setState({
-      formVisibleOnPage: false
-    });
+    const action2 = a.actionFormFalse();
+    dispatch(action2);
+    //this.setState({
+      //formVisibleOnPage: false
+    //});
   }
   
   
