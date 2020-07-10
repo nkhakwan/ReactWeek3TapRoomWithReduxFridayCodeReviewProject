@@ -11,7 +11,7 @@ export default class KegControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
+      //formVisibleOnPage: false,
       detail: false,
     };
     this.handleClick = this.handleClick.bind(this); 
@@ -31,6 +31,7 @@ export default class KegControl extends Component {
   const { dispatch } = this.props;
   const action = a.actionFormTgl();
   dispatch(action);
+  }
   
 
   
@@ -74,10 +75,10 @@ export default class KegControl extends Component {
     if (this.state.detail){
       currentlyVisibleState = <Details detailItem={this.props.detailItem} back={this.back } />;
       buttonText = "Not to be clicked"
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewKeg onNewKegCreation={this.onNewKegCreation} />
       buttonText = "cancel"; 
-    } else if (!this.state.formVisibleOnPage) {
+    } else if (!this.props.formVisibleOnPage) {
       currentlyVisibleState = <KegList kegList={this.props.masterKegList} buy={this.buy} detail={this.detail} />;
       buttonText = "Add Kegs";
     }
@@ -102,7 +103,8 @@ KegControl.propTypes = {
 const mapStateToProps = state => {
   return {
     masterKegList: state.macroKegList,
-    detailItem : state.detailItem
+    detailItem : state.detailItem,
+    formVisibleOnPage :state.formVisibleOnPage
   }
 }
 

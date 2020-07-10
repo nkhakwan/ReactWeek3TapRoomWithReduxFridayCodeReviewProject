@@ -37,3 +37,16 @@ export const detailItem = (state = {}, action) => {
       return state 
   }
 }
+
+export const formVisibleOnPage = (state = false, action) => {
+  //const { macroKegList, id } = action;
+  console.log (action.type);
+  switch (action.type) {
+    case 'FORM_TGL':
+      return !state;
+    case 'FORM_FALSE':
+      return state = false;
+    default:
+      return state 
+  }
+}
