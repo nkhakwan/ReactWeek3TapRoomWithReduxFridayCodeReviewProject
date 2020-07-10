@@ -11,8 +11,7 @@ export default class KegControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //formVisibleOnPage: false,
-      detail: false,
+      //detail: false,
     };
     this.handleClick = this.handleClick.bind(this); 
   }
@@ -20,11 +19,7 @@ export default class KegControl extends Component {
   
   
 
-  /*handleClick = () => {
-    this.setState(lastState => ({
-      formVisibleOnPage: !lastState.formVisibleOnPage
-    }));
-  }*/
+  
 
 
   handleClick = () => {
@@ -42,9 +37,7 @@ export default class KegControl extends Component {
     dispatch(action1);
     const action2 = a.actionFormFalse();
     dispatch(action2);
-    //this.setState({
-      //formVisibleOnPage: false
-    //});
+    
   }
   
   
@@ -61,18 +54,23 @@ export default class KegControl extends Component {
     console.log(this.props.masterKegList);
     const action = a.actionDetail(this.props.masterKegList, id);
     dispatch(action);
-    this.setState({ detail : true });
+    const action2 = a.actionDetailTrue();
+    dispatch(action2);
+    //this.setState({ detail : true });
   }
 
   
   back = () =>{
-    this.setState({ detail : false });
+    const {dispatch} =this.props;
+    const action = a.actionDetailFalse();
+    dispatch(action);
+    //this.setState({ detail : false });
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.detail){
+    if (this.props.detail){
       currentlyVisibleState = <Details detailItem={this.props.detailItem} back={this.back } />;
       buttonText = "Not to be clicked"
     } else if (this.props.formVisibleOnPage) {
@@ -104,7 +102,8 @@ const mapStateToProps = state => {
   return {
     masterKegList: state.macroKegList,
     detailItem : state.detailItem,
-    formVisibleOnPage :state.formVisibleOnPage
+    formVisibleOnPage :state.formVisibleOnPage,
+    detail : state.detail
   }
 }
 

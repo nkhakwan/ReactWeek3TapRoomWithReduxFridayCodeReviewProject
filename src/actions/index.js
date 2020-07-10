@@ -6,6 +6,15 @@ export const actionFormFalse = () =>({
     type: 'FORM_FALSE'
   });
 
+
+  export const actionDetailFalse =()=> ({
+    type: 'DETAIL_FALSE'
+  });
+  
+  export const actionDetailTrue = () =>({
+      type: 'DETAIL_TRUE'
+    });
+    
 export const actionAdd = (newKeg)=> {
     const { id, name, brand, img, price, content, quantity } = newKeg;
     return {
