@@ -12,6 +12,29 @@ const addKeg = {
   id: 9
 };
 
+const decrement = {
+  name : "Taqila",
+  brand : "Insane",
+  img : "Don't have one",
+  price: 300,  
+  content:  5,
+  quantity:120, 
+  id: 9
+};
+
+
+const getDetail = {
+ "7": {
+  name : "Taqila",
+  brand : "Insane",
+  img : "Don't have one",
+  price: 300,  
+  content:  5,
+  quantity:120, 
+  id: 7
+  }
+}; 
+
 describe("formVisibleReducer", () => {
 
 ///////////////////// Testing formVisibleOnPage reducer ////////////////
@@ -84,16 +107,5 @@ test('Should successfully add new Product to macroKegList', () => {
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 });

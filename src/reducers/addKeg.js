@@ -25,7 +25,6 @@ export const macroKegList =  (state = {}, action) => {
 
 export const detailItem = (state = {}, action) => {
   const { macroKegList, id } = action;
-  console.log (action.type);
   switch (action.type) {
     case 'DETAIL':
     if (macroKegList[id] != null){
@@ -39,7 +38,6 @@ export const detailItem = (state = {}, action) => {
 }
 
 export const formVisibleOnPage = (state = false, action) => {
-  console.log (action.type);
   switch (action.type) {
     case 'FORM_TGL':
       return !state;
@@ -51,7 +49,6 @@ export const formVisibleOnPage = (state = false, action) => {
 }
 
 export const detail = (state = false, action) => {
-  console.log (action.type);
   switch (action.type) {
     case 'DETAIL_FALSE':
       return state = false;
