@@ -11,7 +11,6 @@ export default class KegControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //detail: false,
     };
     this.handleClick = this.handleClick.bind(this); 
   }
@@ -56,7 +55,6 @@ export default class KegControl extends Component {
     dispatch(action);
     const action2 = a.actionDetailTrue();
     dispatch(action2);
-    //this.setState({ detail : true });
   }
 
   
@@ -64,7 +62,6 @@ export default class KegControl extends Component {
     const {dispatch} =this.props;
     const action = a.actionDetailFalse();
     dispatch(action);
-    //this.setState({ detail : false });
   }
 
   render() {
